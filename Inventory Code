@@ -1,0 +1,261 @@
+import java.util.Scanner;
+public class Child {
+		
+		Scanner input = new Scanner(System.in);
+	Scanner SecondInput = new Scanner(System.in);
+	Scanner add = new Scanner(System.in);
+	Scanner AdName = new Scanner(System.in);
+	Scanner AdPass = new Scanner(System.in);
+	
+	String first = "Entering in Stock Out", second = "Entering in Pull Out", third = "Entering Stock In", fourth = "Empty Stocks";
+	
+	int Cups = 23, CupCover = 39, Straws = 35, SingleP = 65, DoubleP = 42; //-----------------------------Current Inventory
+	int CupIn = 0, CoverIn = 0, StrawIn = 0, SinglePIn = 0, DoublePIn = 0;//------------------------------Stock Ins
+	int CupStock = 0, CoverStock = 0, StrawStock = 0, SinglePStock = 0, DoublePStock = 0; //--------------Stock Outs
+	int CupPull = 0, CoverPull = 0, StrawPull = 0, SinglePPull = 0, DoublePPull = 0; //-------------------Pull Outs
+	int tries = 0;
+	boolean pasta = true, tryme = true;
+		
+	public static void main(String[] args) {
+		Child within = new Child();
+		
+		while (within.tries < 1) {
+			System.out.print("\t\t\t\t\t\t\tUsername: ");
+            String AdminName = within.AdName.nextLine();
+            System.out.print("\t\t\t\t\t\t\tPassword: ");
+            String AdminPass = within.AdPass.nextLine();
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    
+            if (AdminName.equalsIgnoreCase("Ivan") && AdminPass.equalsIgnoreCase("123")) {
+                	within.tries++;
+                	within.pasta = true;
+            
+            while (within.tryme = true) {
+            	
+                	System.out.println("Current Inventory\r\n"
+            				+ " ________________________________________________________________________________________________________________________\r\n"
+            				+ "|Materials		|	Current Stocks	   |	   Stock In	  |	Stock Out	|	Pull-Outs	|\r\n"
+            				+ "|			|			   |			  |			|			|\r\n"
+            				+ "|1. Cups		|		"+within.Cups+"	   |	 	"+within.CupIn+"	  |  	   "+within.CupStock+"		|	    "+within.CupPull+"		|\r\n"
+            				+ "|2. Cup Covers		|     		"+within.CupCover+"  	   |	  	"+within.CoverIn+"	  |        "+within.CoverStock+"		|	    "+within.CoverPull+"		|\r\n"
+            				+ "|3. Straws		|      		"+within.Straws+"   	   |	  	"+within.StrawIn+"	  |        "+within.StrawStock+" 		|	    "+within.StrawPull+"		|\r\n"
+            				+ "|4. Single Plastics	|      		"+within.SingleP+"  	   |	   	"+within.SinglePIn+"	  |        "+within.SinglePStock+"		|	    "+within.SinglePPull+"	    	|\r\n"
+            				+ "|5. Double Plastics	|      		"+within.DoubleP+"  	   |	  	"+within.DoublePIn+"	  |        "+within.DoublePStock+"		|	    "+within.DoublePPull+"		|\r\n"
+            				+ "|_______________________|__________________________|______________________|_____________________|_______________________|\r\n"
+            				+ "\r\n"
+            				+ "\r\n"
+            				+ "\r\n"
+            				+ "");
+            		
+            		while (within.pasta == true) {
+            			System.out.print("\n\nChoose which materials between 1-5, or 0 to check History: ");
+            		int pick = within.input.nextInt();
+            		System.out.print("");
+            		
+            		if (pick == 0) {
+            			System.out.println("\n\n\n\nHistory\r\n"
+            					+ " ________________________________________________________________________________________________________________________\r\n"
+            					+ "|Materials		|	Current Stocks	   |	   Stock In	  |	Stock Out	|	Pull-Outs	|\r\n"
+            					+ "|			|			   |			  |			|			|\r\n"
+            					+ "|1. Cups		|		"+within.Cups+"	   |	 	"+within.CupIn+"	  |  	   "+within.CupStock+"		|	    "+within.CupPull+"		|\r\n"
+            					+ "|2. Cup Covers		|     		"+within.CupCover+"  	   |	  	"+within.CoverIn+"	  |        "+within.CoverStock+"		|	    "+within.CoverPull+"		|\r\n"
+            					+ "|3. Straws		|      		"+within.Straws+"   	   |	  	"+within.StrawIn+"	  |        "+within.StrawStock+" 		|	    "+within.StrawPull+"		|\r\n"
+            					+ "|4. Single Plastics	|      		"+within.SingleP+"  	   |	   	"+within.SinglePIn+"	  |        "+within.SinglePStock+"		|	    "+within.SinglePPull+"	    	|\r\n"
+            					+ "|5. Double Plastics	|      		"+within.DoubleP+"  	   |	  	"+within.DoublePIn+"	  |        "+within.DoublePStock+"		|	    "+within.DoublePPull+"		|\r\n"
+            					+ "|_______________________|__________________________|______________________|_____________________|_______________________|\r\n"
+            					+ "\r\n"
+            					+ "\r\n"
+            					+ "\r\n"
+            					+ "");
+            			if (within.Cups <= 0 || within.CupCover <= 0 || within.Straws <= 0 || within.SingleP <= 0 || within.DoubleP <= 0) {
+            				if (within.Cups <= 0) {
+                				System.out.print(within.fourth + "-----Cups\n\n\n");
+                			}
+                			if (within.CupCover <= 0) {
+                				System.out.print(within.fourth + "-----Cup Covers\n\n\n");
+                			}
+                			if (within.Straws <= 0) {
+                				System.out.print(within.fourth + "-----Straws\n\n\n");
+                			}
+                			if (within.SingleP <= 0) {
+                				System.out.print(within.fourth + "-----Single Plastics\n\n\n");
+                			}
+                			if (within.DoubleP <= 0) {
+                				System.out.print(within.fourth + "-----Double Plastics\n\n\n");
+                			}
+            			within.tryme = false;
+            			} else {
+            				within.tryme = false;
+            			}
+            			
+            		}
+            		switch (pick) {
+            			
+            		case 1:
+            			System.out.print("\n\nWelcome to Cups\n"+"Do you want to [1]Stock Out, [2]Pull Out and [3]Stock In? You can also leave by entering any number:  ");
+            			String StckOrPout = within.SecondInput.nextLine();
+            			System.out.println("You can also leave by entering any number\n\n\n");
+            			
+            			if (StckOrPout.equalsIgnoreCase("1")) {
+            				System.out.print(within.first + "\n\nEnter how much: ");
+            				int StockOut = within.add.nextInt();
+            				within.CupStock+=StockOut;
+            				within.Cups-=StockOut;
+            				
+            				
+            			} else if (StckOrPout.equalsIgnoreCase("2")) {
+            				System.out.print(within.second + "\n\nEnter how much: ");
+            				int PullOut = within.add.nextInt();
+            				within.CupPull+=PullOut;
+            				within.Cups-=PullOut;
+            				
+            			} else if (StckOrPout.equalsIgnoreCase("3")) {
+            				System.out.print(within.third + "\n\nEnter how much: ");
+            				int StockIn = within.add.nextInt();
+            				within.CupIn+=StockIn;
+            				within.Cups+=StockIn;
+            				
+            			} else {
+            				System.out.println("An error has occured, try again\n\n\n\n");	
+            				within.tryme = false;
+            			}
+            			break;
+            			
+            		case 2:// Cover
+            			System.out.print("\n\nWelcome to Covers\n"+"Do you want to [1]Stock Out, [2]Pull Out and [3]Stock In? You can also leave by entering any number:  ");
+            			String StckOrPout1 = within.SecondInput.nextLine();
+            			System.out.println("You can also leave by entering any number\n\n\n");
+            			
+            			if (StckOrPout1.equalsIgnoreCase("1")) {
+            				System.out.print(within.first + "\n\nEnter how much: ");
+            				int StockOut = within.add.nextInt();
+            				within.CoverStock+=StockOut;
+            				within.CoverStock-=StockOut;
+            				
+            			} else if (StckOrPout1.equalsIgnoreCase("2")) {
+            				System.out.print(within.second + "\n\nEnter how much: ");
+            				int PullOut = within.add.nextInt();
+            				within.CoverPull+=PullOut;
+            				within.CoverPull-=PullOut;
+            			
+            			} else if (StckOrPout1.equalsIgnoreCase("3")) {
+            				System.out.print(within.third + "\n\nEnter how much: ");
+            				int StockIn = within.add.nextInt();
+            				within.CoverIn+=StockIn;
+            				within.CoverIn+=StockIn;
+            				
+            			}else {
+            				System.out.println("An error has occured, try again\n\n\n\n");
+            				within.tryme = false;
+            			}
+            			
+            			break;
+            			
+            		case 3: // Straw
+            			System.out.print("\n\nWelcome to Straws\n"+"Do you want to [1]Stock Out, [2]Pull Out and [3]Stock In? You can also leave by entering any number:  ");
+            			String StckOrPout2 = within.SecondInput.nextLine();
+            			System.out.println("You can also leave by entering any number\n\n\n");
+            			
+            			if (StckOrPout2.equalsIgnoreCase("1")) {
+            				System.out.print(within.first + "\n\nEnter how much: ");
+            				int StockOut = within.add.nextInt();
+            				within.StrawStock+=StockOut;
+            				within.StrawStock-=StockOut;
+            				
+            			} else if (StckOrPout2.equalsIgnoreCase("2")) {
+            				System.out.print(within.second + "\n\nEnter how much: ");
+            				int PullOut = within.add.nextInt();
+            				within.StrawPull+=PullOut;
+            				within.StrawPull-=PullOut;
+            			
+            			} else if (StckOrPout2.equalsIgnoreCase("3")) {
+            				System.out.print(within.third + "\n\nEnter how much: ");
+            				int StockIn = within.add.nextInt();
+            				within.StrawIn+=StockIn;
+            				within.StrawIn+=StockIn;
+            				
+            			} else {
+            				System.out.println("An error has occured, try again\n\n\n\n");
+            				within.tryme = false;
+            			}
+            			
+            			break;
+            			
+            		case 4: // Single Plastics
+            			System.out.print("\n\nWelcome to Single Plastic\n"+"Do you want to [1]Stock Out, [2]Pull Out and [3]Stock In? You can also leave by entering any number: ");
+            			String StckOrPout3 = within.SecondInput.nextLine();
+            			System.out.println("You can also leave by entering any number\n\n\n");
+            			
+            			if (StckOrPout3.equalsIgnoreCase("1")) {
+            				System.out.print(within.first + "\n\nEnter how much: ");
+            				int StockOut = within.add.nextInt();
+            				within.SinglePStock+=StockOut;
+            				within.SinglePStock-=StockOut;
+            				
+            			} else if (StckOrPout3.equalsIgnoreCase("2")) {
+            				System.out.print(within.second + "\n\nEnter how much: ");
+            				int PullOut = within.add.nextInt();
+            				within.SinglePPull+=PullOut;
+            				within.SinglePPull-=PullOut;
+            			
+            			} else if (StckOrPout3.equalsIgnoreCase("3")) {
+            				System.out.print(within.third + "\n\nEnter how much: ");
+            				int StockIn = within.add.nextInt();
+            				within.SinglePIn+=StockIn;
+            				within.SinglePIn+=StockIn;
+            				
+            			} else {
+            				System.out.println("An error has occured, try again\n\n\n\n");
+            				within.tryme = false;
+            			}
+            			
+            			break;
+            			
+            		case 5: // Double Plastics
+            			System.out.print("\n\nWelcome to Double Plastic\n"+"Do you want to [1]Stock Out, [2]Pull Out and [3]Stock In? You can also leave by entering any number: ");
+            			String StckOrPout4 = within.SecondInput.nextLine();
+            			System.out.println("You can also leave by entering any number\n\n\n");
+            			
+            			if (StckOrPout4.equalsIgnoreCase("1")) {
+            				System.out.print(within.first + "\n\nEnter how much: ");
+            				int StockOut = within.add.nextInt();
+            				within.DoublePStock+=StockOut;
+            				within.DoublePStock-=StockOut;
+            				
+            			} else if (StckOrPout4.equalsIgnoreCase("2")) {
+            				System.out.print(within.second + "\n\nEnter how much: ");
+            				int PullOut = within.add.nextInt();
+            				within.DoublePPull+=PullOut;
+            				within.DoublePPull-=PullOut;
+            			
+            			} else if (StckOrPout4.equalsIgnoreCase("3")) {
+            				System.out.print(within.third + "\n\nEnter how much: ");
+            				int StockIn = within.add.nextInt();
+            				within.DoublePIn+=StockIn;
+            				within.DoublePIn+=StockIn;
+            				
+            			} else {
+            				System.out.println("An error has occured, try again\n\n\n\n");
+            				within.tryme = false;
+            			}
+            			
+            			break;
+            			
+            			default:
+            				System.out.println("\n");
+            			
+            		} // Switch - Case
+            		} // While Loop
+                	
+                } 
+            	
+            	} else {
+                	System.out.print("\n\nLogin Error, Try Again");
+                }
+            
+		}
+		
+		
+		
+	}
+}
